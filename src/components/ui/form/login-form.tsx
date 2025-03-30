@@ -1,4 +1,40 @@
-import { cn } from "src/app/lib/utils.ts"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { cn } from "src/app/lib/utils";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -6,10 +42,13 @@ import { Label } from "@/components/ui/label"
 import Image from "next/image"
 import Link from 'next/link'
 
+
+
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const router = useRouter();
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden">
@@ -82,9 +121,9 @@ export function LoginForm({
               </div>
               <div className="text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <Link href="/register" className="underline underline-offset-4">
+                <Button variant="link" onClick={() => router.push('/pages/register')} className="cursor-pointer underline underline-offset-4">
                   Sign up
-                </Link>
+                </Button>
               </div>
             </div>
           </form>
@@ -109,4 +148,3 @@ export function LoginForm({
     </div>
   )
 }
- 

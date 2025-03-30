@@ -1,8 +1,8 @@
 
 
-"use client";
+'use client';
 
-import { cn } from "src/app/lib/utils.ts";
+import { cn } from "src/app/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,11 +10,15 @@ import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 export function RegisterForm({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: React.ComponentProps<"div">) { 
+
+  
+  // react-hook-form
   const {
     register,
     handleSubmit,
@@ -27,6 +31,10 @@ export function RegisterForm({
   };
 
   const password = watch("password");
+
+
+    const router = useRouter();
+
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -142,16 +150,16 @@ export function RegisterForm({
               </div>
               <div className="text-center text-sm">
                 Or You Already have an account?{" "}
-                <Link href="/login" className="underline underline-offset-4">
+                <Button variant="link" onClick={() => router.push('/pages/login')} className="cursor-pointer underline underline-offset-4">
                   Sign In
-                </Link>
+                </Button>
               </div>
             
           </form>
           <div className="relative hidden bg-muted md:block">
             <div className="relative w-full h-full">
               <Image
-                src="/Login-page-Img.png"
+                src="/register-page-Img.png"
                 alt="Login page illustration"
                 fill
                 sizes="50%"
