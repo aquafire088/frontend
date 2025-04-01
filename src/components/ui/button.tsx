@@ -39,11 +39,13 @@ function Button({
   className,
   variant,
   size,
+  icon,
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
+    icon?: React.ReactNode
   }) {
   const Comp = asChild ? Slot : "button"
 
