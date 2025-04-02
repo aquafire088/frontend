@@ -3,13 +3,17 @@ import LoginPage from "./pages/login/page";
 import { RegisterForm } from "@/components/ui/form/register-from";
 import Hero from "@/components/Hero";
 import NavBar from "@/components/navbar";
+import { ResizableDemo } from "@/components/test";
 
 export default function Home() {
   return (
-    //Home page
-    <div>
+    
+      <>
+      {/* Homepage */} 
       <NavBar />
-      
-    </div>
+      {/* ResizableDemo */}
+      <Hero/>
+      </>
+   
   );
 }
